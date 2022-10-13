@@ -1,37 +1,21 @@
-import { Box, Grid } from '@mui/material';
-import Dice from 'react-dice-roll';
-import { connect, useDispatch } from 'react-redux';
-import { setRolledValue } from '../../state';
-import { StoreState } from '../../state/store';
+import { Grid } from '@mui/material';
 import Row from './Row';
 
 interface BoardProps {
     grid: number[][] | null[][];
-    diceValue: number | null;
 }
 
-const Board: React.FC<BoardProps> = ({ grid, diceValue }) => {
-    const dispatch = useDispatch();
+const Board: React.FC<BoardProps> = ({ grid }) => {
     const board = grid.map((row, y) => {
         return <Row items={row}
                     yindex={y}/>;
     });
-    return <Box>
-        <Grid container
-              spacing={1}
-              alignItems="center"
-              justifyContent="center">
-            {board}
-        </Grid>
-        <Box padding={10}>
-            <Dice disabled={diceValue !== null}
-                  onRoll={(value) => dispatch(setRolledValue(value))}/>
-        </Box>
-    </Box>;
+    return <Grid container
+                 spacing={1}
+                 alignItems="center"
+                 justifyContent="center">
+        {board}
+    </Grid>;
 };
 
-const mapStateToProps = (state: StoreState) => {
-    return { grid: state.gridSlice.grid, diceValue: state.gridSlice.diceValue };
-};
-
-export default connect(mapStateToProps)(Board);
+export default Board;
