@@ -3,7 +3,7 @@ import Dice from 'react-dice-roll';
 import { connect, useDispatch } from 'react-redux';
 import { setRolledValue } from '../../state';
 import { StoreState } from '../../state/store';
-import Field from './Field';
+import Row from './Row';
 
 interface BoardProps {
     grid: number[][] | null[][];
@@ -13,13 +13,8 @@ interface BoardProps {
 const Board: React.FC<BoardProps> = ({ grid, diceValue }) => {
     const dispatch = useDispatch();
     const board = grid.map((row, y) => {
-        const rows = row.map((value, x) => {
-            return <Field value={value}
-                          position={{ x, y }}
-                          key={x}/>;
-        });
-        return <Grid item
-                     key={y}>{rows}</Grid>;
+        return <Row items={row}
+                    yindex={y}/>;
     });
     return <Box>
         <Grid container

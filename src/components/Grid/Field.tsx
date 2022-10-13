@@ -23,8 +23,8 @@ const Field: React.FC<FieldProps> = ({ value, position, diceValue }) => {
                     textAlign: 'center',
                     '& > :not(style)': {
                         m: 1,
-                        width: 128,
-                        height: 128,
+                        width: 96,
+                        height: 96,
                     },
                 }}>
         <Paper sx={{
