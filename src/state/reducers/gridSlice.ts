@@ -27,14 +27,11 @@ const gridSlice = createSlice({
             state.grid = grid.map((value) => value.sort((a, b) => (!a ? 1 : 0)) as number[])
             state.diceValue = null;
         },
-        rollDice(state: GridState) {
-            state.diceValue = generateDiceOutput();
-        },
         setRolledValue(state: GridState, action: SetRolledValueAction) {
             state.diceValue = action.payload;
         }
     },
 });
 
-export const { setField, rollDice, setRolledValue } = gridSlice.actions;
+export const { setField, setRolledValue } = gridSlice.actions;
 export default gridSlice.reducer;

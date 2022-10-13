@@ -11,9 +11,7 @@ const Board: React.FC<BoardProps> = ({ grid }) => {
                     yindex={y}/>
     });
     return <Grid container
-                 spacing={1}
-                 alignItems="center"
-                 justifyContent="center">
+                 spacing={1}>
         {board}
     </Grid>
 };
