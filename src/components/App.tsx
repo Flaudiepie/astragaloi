@@ -14,12 +14,12 @@ const App: React.FC<AppProps> = ({ grid, diceValue }) => {
     const dispatch = useDispatch();
     
     return <Box>
-        <Board grid={grid}/>;
+        <Board grid={grid}/>
         <Box padding={10}>
             <Dice disabled={diceValue !== null}
                   onRoll={(value) => dispatch(setRolledValue(value))}/>
         </Box>
-    </Box>;
+    </Box>
 };
 
 const mapStateToProps = (state: StoreState) => {

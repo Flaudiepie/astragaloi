@@ -8,14 +8,14 @@ interface BoardProps {
 const Board: React.FC<BoardProps> = ({ grid }) => {
     const board = grid.map((row, y) => {
         return <Row items={row}
-                    yindex={y}/>;
+                    yindex={y}/>
     });
     return <Grid container
                  spacing={1}
                  alignItems="center"
                  justifyContent="center">
         {board}
-    </Grid>;
+    </Grid>
 };
 
 export default Board;

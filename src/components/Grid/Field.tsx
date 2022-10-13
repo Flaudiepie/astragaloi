@@ -34,7 +34,7 @@ const Field: React.FC<FieldProps> = ({ value, position, diceValue }) => {
             textAlign: 'center',
             verticalAlign: 'middle'
         }}>
-            {value || 'X'}
+            {value || ''}
         </Paper>
     </Box>;
 };

@@ -23,6 +23,8 @@ const gridSlice = createSlice({
         setField(state: GridState, action: SetValueAction) {
             const { x, y } = action.payload;
             state.grid[y][x] = state.diceValue;
+            const grid = state.grid.slice();
+            state.grid = grid.map((value) => value.sort((a, b) => (!a ? 1 : 0)) as number[])
             state.diceValue = null;
         },
         rollDice(state: GridState) {
